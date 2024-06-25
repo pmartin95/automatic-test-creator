@@ -1,0 +1,9 @@
+directories:
+  images: images
+  problems: problem-jsons
+
+files:
+  log: problem_generator.log
+
+defaults:
+  num_problems: 1
