@@ -177,8 +177,13 @@ def main(proj_dir: str, tags: List[str], num_problems: int) -> None:
         select_problems_df = select_problems(problems_df, tags, num_problems)
         logging.info(f"Selected {len(select_problems_df)} problem(s)")
         
+        problem_packages = collect_packages(select_problems_df)
+        logging.info(f"Collected packages: {problem_packages}")
+
         # Create problem document
         problem_doc = Document("problem_set")
+        for package in problem_packages:
+            problem_doc.packages.append(Package(package))
         problem_doc.packages.append(Package('graphicx'))
         problem_doc.packages.append(Package('amsmath'))
         problem_doc.preamble.append(Command('graphicspath', '{{./images/}}'))
@@ -197,7 +202,8 @@ def main(proj_dir: str, tags: List[str], num_problems: int) -> None:
         solution_doc = Document("solutions")
         solution_doc.packages.append(Package('graphicx'))
         solution_doc.packages.append(Package('amsmath'))
-    
+        for package in problem_packages:
+            solution_doc.packages.append(Package(package))
         solution_doc.preamble.append(Command('graphicspath', '{./images/}'))
         solution_doc.preamble.append(Command('title', 'Solutions'))
         solution_doc.preamble.append(Command('author', 'Anonymous author'))
