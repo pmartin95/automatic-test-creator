@@ -89,11 +89,26 @@ def select_problems(problems_dataframe: pd.DataFrame, tags: List[str] = [], num_
     n = min(num_problems, len(filtered_df))
     return filtered_df.sample(n=n)
 
+def collect_packages(problems_df: pd.DataFrame) -> List[str]:
+    """
+    Collect unique packages from all selected problems.
+
+    Args:
+        problems_df (pd.DataFrame): DataFrame containing selected problems.
+
+    Returns:
+        List[str]: List of unique package names.
+    """
+    all_packages = set()
+    for _, row in problems_df.iterrows():
+        if 'packages' in row and isinstance(row['packages'], list):
+            all_packages.update(row['packages'])
+    return list(all_packages)
 
 def fill_document(doc: Document, problems_df: pd.DataFrame, images_dir: str):
     for _, row in tqdm(problems_df.iterrows(), total=len(problems_df), desc="Filling solution document"):
         if row["problem name"]:
-            with doc.create(Section(NoEscape(row["problem name"].replace(" ", "~")))):
+            with doc.create(Section(NoEscape(row["problem name"]))):
                 doc.append(NoEscape(row["problem statement"]))
                 
                 logging.info(f"Processing problem: {row['problem name']}")
