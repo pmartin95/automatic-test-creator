@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "automatic-test-creator"
+version = "0.1.0"
+description = "A project for automatically generating problem sets"
+authors = ["Paul M. Martin"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+numpy = "^2.1.2"
+ordered-set = "^4.1.0"
+pandas = "^2.2.3"
+PyLaTeX = "^1.4.2"
+python-dateutil = "^2.9.0.post0"
+pytz = "^2024.2"
+PyYAML = "^6.0.2"
+six = "^1.16.0"
+tqdm = "^4.66.5"
+tzdata = "^2024.2"
+
+[tool.poetry.dev-dependencies]
+tox = "^4.11.3"  # Latest Tox version for testing
+
+[tool.poetry.scripts]  # Optional, helpful for defining an entry point
+main = "scripts.main:main"
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.21.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

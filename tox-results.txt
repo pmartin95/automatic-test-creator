@@ -1,0 +1,49 @@
+py38: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py38
+py38: install_deps> python -I -m pip install poetry
+py38: commands[0]> poetry install --no-root
+Installing dependencies from lock file
+
+No dependencies to install or update
+py38: commands[1]> poetry run python scripts/main.py . --num_problems 2 --tags math -v
+py39: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py39
+py38: OK ✔ in 11.07 seconds
+py39: install_deps> python -I -m pip install poetry
+py39: commands[0]> poetry install --no-root
+Installing dependencies from lock file
+
+No dependencies to install or update
+py39: commands[1]> poetry run python scripts/main.py . --num_problems 2 --tags math -v
+py310: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py310
+py39: OK ✔ in 10.56 seconds
+py310: install_deps> python -I -m pip install poetry
+py310: commands[0]> poetry install --no-root
+Installing dependencies from lock file
+
+No dependencies to install or update
+py310: commands[1]> poetry run python scripts/main.py . --num_problems 2 --tags math -v
+py311: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py311
+py310: OK ✔ in 10.56 seconds
+py311: install_deps> python -I -m pip install poetry
+py311: commands[0]> poetry install --no-root
+Installing dependencies from lock file
+
+No dependencies to install or update
+py311: commands[1]> poetry run python scripts/main.py . --num_problems 2 --tags math -v
+py312: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py312
+py311: OK ✔ in 9.79 seconds
+py312: install_deps> python -I -m pip install poetry
+py312: commands[0]> poetry install --no-root
+Installing dependencies from lock file
+
+No dependencies to install or update
+py312: commands[1]> poetry run python scripts/main.py . --num_problems 2 --tags math -v
+py313: remove tox env folder /home/pmartin95/proj-2024-06/automatic-test-creator/.tox/py313
+py312: OK ✔ in 8.22 seconds
+py313: skipped because could not find python interpreter with spec(s): py313
+  py38: OK (11.07=setup[8.18]+cmd[0.89,2.00] seconds)
+  py39: OK (10.56=setup[8.02]+cmd[0.89,1.66] seconds)
+  py310: OK (10.56=setup[8.02]+cmd[0.86,1.68] seconds)
+  py311: OK (9.79=setup[7.57]+cmd[0.67,1.56] seconds)
+  py312: OK (8.22=setup[6.15]+cmd[0.58,1.50] seconds)
+  py313: SKIP (0.65 seconds)
+  congratulations :) (51.02 seconds)
